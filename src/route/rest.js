@@ -10,6 +10,16 @@ router.get("/posts", (req, res, next) => {
     .catch(err => next(err));
 });
 
+router.post("/posts", (req, res, next) => {
+  service
+    .addPost({
+      title: req.body.title,
+      content: req.body.content
+    })
+    .then(posts => res.sendStatus(201))
+    .catch(err => next(err));
+});
+
 router.get("/posts/:postId", (req, res, next) => {
   service
     .getPostsById(req.params.postId)

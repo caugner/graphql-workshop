@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const service = require("./service");
 const loggerConf = require("./logger-conf");
 const restRouter = require("./route/rest");
@@ -9,6 +10,7 @@ const expressLogger = loggerConf.expressLogger;
 const logger = loggerConf.logger;
 
 app.use(expressLogger);
+app.use(bodyParser.json());
 app.use("/rest", restRouter);
 
 service
