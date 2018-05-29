@@ -3,24 +3,24 @@ const service = require("../service");
 
 const router = Router();
 
-router.get("/post", (req, res, next) => {
+router.get("/posts", (req, res, next) => {
   service
-    .getAllPost()
-    .then(posts => res.json({ posts: posts }))
+    .getPosts()
+    .then(posts => res.json({ posts }))
     .catch(err => next(err));
 });
 
-router.get("/post/:postId", (req, res, next) => {
+router.get("/posts/:postId", (req, res, next) => {
   service
-    .getPostById(req.params.postId)
-    .then(post => res.json({ post: post }))
+    .getPostsById(req.params.postId)
+    .then(posts => res.json({ posts }))
     .catch(err => next(err));
 });
 
-router.get("/post/:postId/comment", (req, res, next) => {
+router.get("/posts/:postId/comments", (req, res, next) => {
   service
-    .getAllCommentFor(req.params.postId)
-    .then(comment => res.json({ comment: comment }))
+    .getCommentsFor(req.params.postId)
+    .then(comments => res.json({ comments }))
     .catch(err => next(err));
 });
 

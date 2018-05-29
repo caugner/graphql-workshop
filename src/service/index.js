@@ -2,18 +2,18 @@ const db = require("sqlite");
 const Promise = require("bluebird");
 
 module.exports = {
-  open() {
+  onReady() {
     return db
       .open("./blog.sqlite", { Promise })
       .then(() => db.migrate({ force: "last" }));
   },
-  getAllPost() {
+  getPosts() {
     return db.all("SELECT * FROM Post");
   },
-  getPostById(postId) {
+  getPostsById(postId) {
     return db.get("SELECT * FROM Post WHERE id=?", postId);
   },
-  getAllCommentFor(postId) {
+  getCommentsFor(postId) {
     return db.all("SELECT * FROM Comment WHERE postId=?", postId);
   }
 };
