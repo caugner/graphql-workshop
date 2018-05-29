@@ -7,7 +7,10 @@ module.exports = {
       .open("./blog.sqlite", { Promise })
       .then(() => db.migrate({ force: "last" }));
   },
-  getPosts() {
-    return db.all("SELECT * FROM Post LIMIT 10");
+  getAllPost() {
+    return db.all("SELECT * FROM Post");
+  },
+  getPostById(id) {
+    return db.get("SELECT * FROM Post WHERE id=?", id);
   }
 };
