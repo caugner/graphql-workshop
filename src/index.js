@@ -11,10 +11,17 @@ app.get("/post", (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.get("/post/:id", (req, res, next) => {
+app.get("/post/:postId", (req, res, next) => {
   service
-    .getPostById(req.params.id)
+    .getPostById(req.params.postId)
     .then(post => res.json({ post: post }))
+    .catch(err => next(err));
+});
+
+app.get("/post/:postId/comment", (req, res, next) => {
+  service
+    .getAllCommentFor(req.params.postId)
+    .then(comment => res.json({ comment: comment }))
     .catch(err => next(err));
 });
 

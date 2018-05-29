@@ -10,7 +10,10 @@ module.exports = {
   getAllPost() {
     return db.all("SELECT * FROM Post");
   },
-  getPostById(id) {
-    return db.get("SELECT * FROM Post WHERE id=?", id);
+  getPostById(postId) {
+    return db.get("SELECT * FROM Post WHERE id=?", postId);
+  },
+  getAllCommentFor(postId) {
+    return db.all("SELECT * FROM Comment WHERE postId=?", postId);
   }
 };
