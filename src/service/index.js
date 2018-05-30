@@ -7,7 +7,7 @@ module.exports = {
   onReady() {
     return db
       .open("./blog.sqlite", { Promise, verbose: true })
-      .then(() => db.migrate({ force: "last" }));
+      .then(() => db.migrate());
   },
   getPosts() {
     return db.all("SELECT * FROM Post");
