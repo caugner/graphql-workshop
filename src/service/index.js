@@ -12,17 +12,24 @@ module.exports = {
   getPosts() {
     return db.all("SELECT * FROM Post");
   },
-  addPost(params) {
+  addNewPost(newPost) {
     return db.run(
       "INSERT INTO Post (title, content) VALUES (?, ?)",
-      params.title,
-      params.content
+      newPost.title,
+      newPost.content
     );
   },
-  getPostsById(postId) {
+  getPostById(postId) {
     return db.get("SELECT * FROM Post WHERE id=?", postId);
   },
   getCommentsFor(postId) {
     return db.all("SELECT * FROM Comment WHERE postId=?", postId);
+  },
+  addNewCommentFor(postId, newComment) {
+    return db.run(
+      "INSERT INTO Comment (content, postId) VALUES (?, ?)",
+      newComment.content,
+      postId
+    );
   }
 };
