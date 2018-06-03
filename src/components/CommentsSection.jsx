@@ -28,8 +28,8 @@ class CommentsSection extends Component {
     return (
       <div className="comments-section">
         <div className="comments-feed p-1">
-          {comments.map(comment => (
-            <div className="comment mb-1">
+          {comments.map((comment, i) => (
+            <div className="comment mb-1" key={i}>
               <h3 className="has-text-weight-semibold">{comment.author}</h3>
               <p>{comment.text}</p>
             </div>

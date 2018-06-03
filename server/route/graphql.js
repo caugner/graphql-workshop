@@ -7,13 +7,18 @@ const router = Router();
 
 var schema = buildSchema(`
 type Query {
-  posts: [Int]
+  posts: [Post]
+}
+type Post {
+  title: String,
+  content : String,
+  categoryId : Int
 }
 `);
 
 var root = {
-  posts: () => {
-    return [1, 2, 3];
+  posts() {
+    return service.getPosts();
   }
 };
 
