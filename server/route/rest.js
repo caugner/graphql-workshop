@@ -1,6 +1,6 @@
 const Router = require("express").Router;
 const service = require("../service");
-const $ = require("./_utils");
+const $ = require("./rest-utils");
 
 const router = Router();
 
