@@ -7,13 +7,20 @@
     "node": ">=6.14.2"
   },
   "scripts": {
-    "start": "nodemon src/server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":
+      "concurrently --names 'HTTP,WATCH' -c 'bgBlue.bold,bgMagenta.bold' 'nodemon server' 'react-scripts start'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
+  "proxy": "http://localhost:3001/",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
     "compression": "^1.7.2",
@@ -21,9 +28,12 @@
     "express-graphql": "^0.6.12",
     "express-winston": "^2.5.1",
     "graphql": "^0.13.2",
-    "nodemon": "^1.17.5",
     "sqlite": "^2.9.2",
     "sqlite3": "^4.0.0",
     "winston": "^2.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5",
+    "concurrently": "^3.5.1"
   }
 }
