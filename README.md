@@ -43,21 +43,18 @@ Le projet est organisé comme suit :
 
 ```
 .
+├── ...
 ├── blog.sqlite                   <-- Fichier de base de données SQlite du blog
-├── docs                          <-- Dossier de documentation
 ├── migrations                    <-- Dossier contenant les scripts d'initialisation SQL
-├── package.json
 ├── public                        <-- Dossier publique exposé sur localhost:3000
-│   ├── favicon.ico
 │   ├── index.html
-│   └── manifest.json
+│   └── ...
 ├── server                        <-- Sources du serveur en NodeJS exposant les données
-│   ├── index.js                  <-- Script d'entré, configurant et démarrant le serveur
-│   ├── logger-conf.js            <-- Script de configuration de logging serveur
+│   ├── ...
 │   ├── route                     <-- Dossier contenant les routes exposées par le serveur
 │   │   ├── graphql.js            <-- Script pour exposer les données en GraphQL (à modifier pendant le workshop)
 │   │   ├── rest.js               <-- Script pour exposer les données en REST
-│   │   └── rest-utils.js
+│   │   └── ...
 │   └── service
 │       └── index.js              <-- Service qui permet d'accéder et modifier les données en base
 └── src                           <-- Sources du front en React (architecture create-react-app)
