@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Feed from "./components/Feed";
-import * as restClient from "./rest-client";
-import * as graphQLClient from "./graphql-client";
+import * as restClient from "./clients/rest";
+import * as graphQLClient from "./clients/graphql";
 
 const isRest = false;
 const client = isRest ? restClient : graphQLClient;

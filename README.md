@@ -52,17 +52,18 @@ Le projet est organisé comme suit :
 ├── server                        <-- Sources du serveur en NodeJS exposant les données
 │   ├── ...
 │   ├── route                     <-- Dossier contenant les routes exposées par le serveur
-│   │   ├── graphql.js            <-- Script pour exposer les données en GraphQL (à modifier pendant le workshop)
+│   │   ├── graphql.js            <-- Script pour exposer les données en GraphQL (à modifier)
 │   │   ├── rest.js               <-- Script pour exposer les données en REST
 │   │   └── ...
 │   └── service
 │       └── index.js              <-- Service qui permet d'accéder et modifier les données en base
 └── src                           <-- Sources du front en React (architecture create-react-app)
     ├── ...
-    ├── components
-    │   └── ...
-    ├── rest-client.js            <-- Script permettant la récupération et manipulation des données via REST
-    └── graphq-client.js          <-- Script permettant la récupération et manipulation des données via GraphQL (à modifier pendant le workshop)
+    ├── clients                   <-- Dossier contenant les routes exposées par le serveur
+    │   ├── rest.js               <-- Script permettant la récupération et manipulation des données via REST
+    │   └── graphq.js             <-- Script permettant la récupération et manipulation des données via GraphQL (à modifier)
+    └── components
+        └── ...
 ```
 
 Quand le projet est démarré (via `npm start`) deux tâches sont lancées en parallèle :
@@ -72,5 +73,7 @@ Quand le projet est démarré (via `npm start`) deux tâches sont lancées en pa
 
 ## Premier exercice : Familliarisation avec GraphQL
 
-Si vous faites ce workshop hors du la session Best Of Web, nous vous invitons à d'abord prendre connaissance de la présentation suivante :
+Si vous faites ce workshop hors de la session Best Of Web, nous vous invitons à d'abord prendre connaissance de la présentation suivante :
 <https://slides.com/mbreton/graphql-workshop>
+
+Dans cette première vous allez vous familiarisez avec le requêtage GraphQL et son implémentation côté serveur.
