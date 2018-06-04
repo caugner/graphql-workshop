@@ -76,4 +76,4 @@ Quand le projet est démarré (via `npm start`) deux tâches sont lancées en pa
 Si vous faites ce workshop hors de la session Best Of Web, nous vous invitons à d'abord prendre connaissance de la présentation suivante :
 <https://slides.com/mbreton/graphql-workshop>
 
-Dans cette première vous allez vous familiarisez avec le requêtage GraphQL et son implémentation côté serveur.
+Dans cet premier exercice vous allez vous familiarisez avec le requêtage GraphQL et son implémentation côté serveur.

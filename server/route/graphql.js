@@ -1,11 +1,14 @@
 const Router = require("express").Router;
-const graphqlHTTP = require("express-graphql");
-const buildSchema = require("graphql").buildSchema;
+/* const graphqlHTTP = require("express-graphql");
+const buildSchema = require("graphql").buildSchema; */
 const service = require("../service");
+
+const { graphqlExpress } = require("apollo-server-express");
+const { makeExecutableSchema } = require("graphql-tools");
 
 const router = Router();
 
-var schema = buildSchema(`
+var typeDefs = `
 type Query {
   posts: [Post]
 }
@@ -14,19 +17,26 @@ type Post {
   content : String,
   categoryId : Int
 }
-`);
+`;
 
-var root = {
-  posts() {
-    return service.getPosts();
+const resolvers = {
+  Query: {
+    posts() {
+      return service.getPosts();
+    }
   }
 };
 
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+  cacheControl: true
+});
+
 router.use(
-  graphqlHTTP({
-    schema,
-    rootValue: root,
-    graphiql: true
+  graphqlExpress({
+    tracing: true,
+    schema
   })
 );
 
