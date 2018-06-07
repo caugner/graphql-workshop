@@ -13,6 +13,11 @@ const schema = buildSchema(`
     comments: [Comment]
   }
 
+  type PostInput {
+    title: String!
+    content: String!
+  }
+
   type Comment {
     id: ID!
     content: String!
@@ -24,6 +29,7 @@ const schema = buildSchema(`
 
   type Mutation {
     createComment(postId: ID!, content: String): Comment
+    createPost(newPost: PostInput): Post
   }
 `);
 
