@@ -10,6 +10,12 @@ const schema = buildSchema(`
     id: ID!
     title: String!
     content: String!
+    comments: [Comment]
+  }
+
+  type Comment {
+    id: ID!
+    content: String!
   }
 
   type Query {
