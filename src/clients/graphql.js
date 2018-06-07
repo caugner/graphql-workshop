@@ -6,7 +6,20 @@ export async function getPosts(limit, offset) {
   return result.data.data.posts;
 }
 
-export async function addNewPost(newPost) {}
+export async function addNewPost(newPost) {
+  const result = await axios.post(
+    '/graphql',
+    {
+      query: `mutation createPost($newPost: PostInput!) {
+        createPost(newPost: $newPost) { id title content }
+      }`,
+      variables: {
+        newPost
+      }
+    }
+  )
+  return result.data.data.createPost;
+}
 
 export async function addNewComment(comment, postId) {
   const result = await axios.post(
