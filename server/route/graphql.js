@@ -17,10 +17,16 @@ const schema = buildSchema(`
   }
 `);
 
+const resolvers = {
+  posts (obj, args, context) {
+    return service.getPosts();
+  }
+}
+
 router.use(
   graphqlHTTP({
     schema,
-    rootValue: {},
+    rootValue: resolvers,
     graphiql: true
   })
 );
