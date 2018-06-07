@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function getPosts(limit, offset) {
-  const result = await axios.post('/graphql', { query: `{ posts { id, title, content } }` })
+  const result = await axios.post('/graphql', { query: `{ posts { id, title, content, comments { id, content } } }` })
   console.log(result);
   return result.data.data.posts;
 }
