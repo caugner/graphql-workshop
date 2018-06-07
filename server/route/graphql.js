@@ -13,7 +13,7 @@ const schema = buildSchema(`
     comments: [Comment]
   }
 
-  type PostInput {
+  input PostInput {
     title: String!
     content: String!
   }
