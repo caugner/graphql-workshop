@@ -11,6 +11,10 @@ const schema = buildSchema(`
     title: String!
     content: String!
   }
+
+  type Query {
+    posts: [Post]
+  }
 `);
 
 router.use(
