@@ -21,6 +21,13 @@ const schema = buildSchema(`
   type Query {
     posts: [Post]
   }
+
+  type Mutation {
+    createComment(
+      postId: ID,
+      content: String
+    ): Comment
+  }
 `);
 
 const resolvers = {
