@@ -23,10 +23,7 @@ const schema = buildSchema(`
   }
 
   type Mutation {
-    createComment(
-      postId: ID,
-      content: String
-    ): Comment
+    createComment(postId: ID!, content: String): Comment
   }
 `);
 
