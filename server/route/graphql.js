@@ -30,6 +30,9 @@ const schema = buildSchema(`
 const resolvers = {
   posts (obj, args, context) {
     return service.getPosts();
+  },
+  createComment (obj, args, context) {
+    return service.addNewCommentFor(obj.postId, obj.content);
   }
 }
 
