@@ -39,6 +39,9 @@ const resolvers = {
   },
   createComment (obj, args, context) {
     return service.addNewCommentFor(obj.postId, obj.content);
+  },
+  createPost (obj, args, context) {
+    return service.addNewPost(obj.newPost);
   }
 }
 
